@@ -13,7 +13,7 @@ from models.user import User
 
 class Prac(cmd.Cmd):
 
-    """ Start our cmd class and the prompt hbnb,
+    """ Start our cmd class and the prompt hbnb, 
     """
     prompt = "(hbnb) "
     classes = [
@@ -63,7 +63,7 @@ class Prac(cmd.Cmd):
                 print("** no instance found **")
 
     def do_destroy(self, arg):
-        """Destroy the classes"""
+    """Destroy the classes"""
         arg = arg.split()
         if len(arg) == 0:
             print("** class name missing **")
