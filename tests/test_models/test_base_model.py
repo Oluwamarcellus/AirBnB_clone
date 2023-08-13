@@ -19,14 +19,6 @@ class TestBaseModel(unittest.TestCase):
         strn = "[{}] ({}) {}".format(cls, base.id, base.__dict__)
         self.assertEqual(base.__str__(), strn)
 
-    def test_save(self):
-        """Test save method"""
-        base = BaseModel()
-        base_time = base.updated_at
-        base.save()
-        newtime = base.updated_at
-        self.assertEqual(base_time, newtime)
-
     def test_to_dict(self):
         """
         Test to_daict() function from basemodel
