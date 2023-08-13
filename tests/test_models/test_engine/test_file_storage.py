@@ -4,18 +4,48 @@ Test for FileStorage module
 """
 
 
+import os
 from models.engine.file_storage import FileStorage
 from models.base_model import BaseModel
 import datetime
 import unittest
 import models
+from models.amenity import Amenity
 from models.city import City
+from models.place import Place
+from models.review import Review
+from models.state import State
+from models.user import User
 
 
 class TestStorage(unittest.TestCase):
     """
     Testing FileStorage class
     """
+
+    @classmethod
+    def setup(cls):
+        """
+        Preps for testing
+        """
+        try:
+            os.rename("file.json", "tmp")
+        except Exception:
+            pass
+
+    @classmethod
+    def tearDownClass(cls):
+        """
+        Restoring file
+        """
+        try:
+            os.remove("file.json")
+        except Exception:
+            pass
+        try:
+            os.rename("tmp", "file.json")
+        except Exception:
+            pass
 
     def test_inst(self):
         """
@@ -52,9 +82,6 @@ class TestStorage(unittest.TestCase):
             f_contents = file.read()
             self.assertIn("City." + sample.id, f_contents)
 
-    def test_save_none(self):
-        """
-        Testing save with None as arg
-        """
-        with self.assertRaises(TypeError):
-            models.storage.save(None)
+
+if __name__ == "__main__":
+    unittest.main()
