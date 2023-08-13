@@ -13,6 +13,7 @@ from models.place import Place
 from models.review import Review
 from models.state import State
 from models.user import User
+import datetime
 
 
 class FileStorage:
@@ -41,14 +42,12 @@ class FileStorage:
         """
         Returns the dictionary __objects
         """
-
         return FileStorage.__objects
 
     def new(self, obj):
         """
         Sets in __objects obj with key <obj_class_name>.id
         """
-
         class_name = obj.__class__.__name__
         id_ = obj.id
         format_ = "{}.{}".format(class_name, id_)
@@ -58,10 +57,9 @@ class FileStorage:
         """
         Serializes __objects to the JSON file __file_path
         """
-
         data = FileStorage.__objects
         objects_to_dict = {obj: data[obj].to_dict() for obj in data.keys()}
-        with open(FileStorage.__file_path, "w") as file:
+        with open(FileStorage.__file_path, "w", encoding="utf-8") as file:
             file.write(json.dumps(objects_to_dict))
 
     def reload(self):
@@ -75,9 +73,8 @@ class FileStorage:
         => eval(a) returns "hello"
 
         """
-
         try:
-            with open(FileStorage.__file_path) as f:
+            with open(FileStorage.__file_path, encoding="utf-8") as f:
                 objdict = json.load(f)
                 for obj in objdict.values():
                     class_name = obj["__class__"]
