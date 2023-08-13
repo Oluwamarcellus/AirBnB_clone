@@ -24,6 +24,5 @@ class TestBaseModel(unittest.TestCase):
         self.assertEqual(place.amenity_ids, [])
 
     def test_p(self):
-        """Test if it's an instance of an objesct"""
         place = Place()
         self.assertTrue(isinstance(place, BaseModel))

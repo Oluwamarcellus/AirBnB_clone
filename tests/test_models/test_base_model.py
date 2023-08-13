@@ -15,7 +15,9 @@ class TestBaseModel(unittest.TestCase):
     def test_str(self):
         """Check string output from BaseModel"""
         base = BaseModel()
-        self.asserEqual(base.__str__(), f"[{type(base).__name__}] ({base.id}] {base.__dict__}")
+        cls = type(base).__name__
+        strn = "[{}] ({}) {}".format(cls, base.id, base.__dict__)
+        self.assertEqual(base.__str__(), strn)
 
     def test_save(self):
         """Test save method"""
