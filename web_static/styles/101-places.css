@@ -1,8 +1,9 @@
 .places {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     margin: 0;
     padding: 0;
+    z-index: -1;
 }
 
 .places h1,
@@ -24,10 +25,8 @@
     border-radius: 4px;
     text-align: center;
     display: flex;
-    justify-content: flex-start;
-    flex-direction: column;
     flex-wrap: wrap;
-    position: relative;
+    box-sizing: border-box;
 }
 
 .places .price_by_night {
@@ -40,15 +39,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    position: absolute;
-    top: 15px;
-    right: 15px;
+    margin: auto;
+    margin-left: 40%;
 }
 
 .places .information {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-evenly;
     height: 80px;
     border-top: 1px solid #DDDDDD;
     border-bottom: 1px solid #DDDDDD;
@@ -85,9 +83,6 @@
     height: inherit;
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: center;
-    text-align: left;
 }
 
 .places .amenities h2,
@@ -103,13 +98,14 @@
 .places .reviews ul {
     list-style-type: none;
     padding: 0;
+    text-align: left;
+    justify-content: space-evenly;
 }
 
 .places .amenities ul li {
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
+    justify-content: left;
 }
 
 .places .amenities span {
