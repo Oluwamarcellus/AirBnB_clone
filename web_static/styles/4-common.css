@@ -1,11 +1,25 @@
-body {
+html {
 	margin: 0;
 	padding: 0;
-	font-family: Circular, "Helvetica Neue", Helvetica, Arial, sans-serif;
-	font-size: 14px;
-	color: #484848
+	border: 0;
+    	height: 100vh;
+	font-size: 100%;
+	font: inherit;
+    	box-sizing: border-box;
+	vertical-align: baseline;
 }
+
+body {
+    margin: 0;
+    padding: 0;
+    color: #484848;
+    font-size: 14px;
+    font-family: "Circular", "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+}
+
 .container {
-	max-width: 1000px;
-	margin: 30px auto;
+    max-width: 1000px;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
